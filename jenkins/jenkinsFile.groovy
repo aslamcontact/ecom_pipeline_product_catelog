@@ -26,6 +26,7 @@ pipeline
                 stage('cloning')
                         {
                             steps {
+                                sh "docker volume rm ${volume}"
                                 sh  "docker volume create ${volume}"
 
                                 sh  "docker run --rm  --name test2 "+
@@ -36,6 +37,7 @@ pipeline
                                         "-v ${volume}:/app "+
                                         "-w /app  ${gitImage} "+
                                         "ls"
+
 
                             }
                         }
