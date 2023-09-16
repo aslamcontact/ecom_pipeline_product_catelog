@@ -33,6 +33,16 @@ pipeline
                                         "-v ${volume}:/app "+
                                         "-w /app  ${gitImage} "+
                                         "git clone ${gitProjectUrl}"
+
+                            }
+                        }
+
+                stage('docker compose up')
+                        {
+                            steps {
+
+
+
                                 sh  "docker run --rm  --name test3 "+
                                         "-v ${volume}:/app "+
                                         "-v /var/run/docker.sock:/var/run/docker.sock "+
@@ -41,8 +51,34 @@ pipeline
                                         "-v /usr/libexec/docker/cli-plugins/docker-compose:"+
                                         "/usr/libexec/docker/cli-plugins/docker-compose "+
                                         "-w /app/ecom_product_catelog  ubuntu:latest "+
-                                        "docker compose up -d"
-                                sh "sleep 20"
+                                        "docker compose up -d "
+
+
+
+                            }
+                        }
+
+
+
+                stage('validate')
+                        {
+                            steps {
+                                sh "docker run --rm --name sys "+
+                                        "-v ${volume}:/app "+
+                                        " -w /app ${buildImage} "+
+                                        "mvn -f ecom_product_catelog/ validate"
+                            }
+                        }
+
+
+
+
+
+                stage('docker compose down')
+                        {
+                            steps {
+
+
 
                                 sh  "docker run --rm  --name test3 "+
                                         "-v ${volume}:/app "+
@@ -58,5 +94,7 @@ pipeline
 
                             }
                         }
+
+
             }
         }
