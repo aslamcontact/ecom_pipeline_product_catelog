@@ -41,6 +41,15 @@ pipeline
                                         "-w /app/ecom_product_catelog  ubuntu:latest "+
                                         "docker compose up -d"
 
+                                sh  "docker run --rm  --name test4 "+
+                                        "-v ${volume}:/app "+
+                                        "-v /var/run/docker.sock:/var/run/docker.sock"+
+                                        "-v /usr/bin/docker:/usr/bin/docker"+
+                                        "-v /usr/bin/docker:/usr/bin/compose"+
+                                        "-w /app/ecom_product_catelog  ubuntu:latest "+
+                                        "docker compose down"
+
+
 
                             }
                         }
