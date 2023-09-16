@@ -34,20 +34,13 @@ pipeline
                                         "-w /app  ${gitImage} "+
                                         "git clone ${gitProjectUrl}"
                                 sh  "docker run --rm  --name test3 "+
-                                        "-v ${volume}:/app "+
+                                        "-v /home/basic_api:/api "+
                                         "-v /var/run/docker.sock:/var/run/docker.sock "+
                                         "-v /usr/bin/docker:/usr/bin/docker "+
                                         "-v /usr/bin/compose:/usr/bin/compose "+
-                                        "-w /app/ecom_product_catelog  ubuntu:latest "+
+                                        "-w /api  ubuntu:latest "+
                                         "docker compose up "
 
-                                sh  "docker run --rm  --name test4 "+
-                                        "-v ${volume}:/app "+
-                                        "-v /var/run/docker.sock:/var/run/docker.sock "+
-                                        "-v /usr/bin/docker:/usr/bin/docker "+
-                                        "-v /usr/bin/compose:/usr/bin/compose "+
-                                        "-w /app/ecom_product_catelog  ubuntu:latest "+
-                                        "docker compose down"
 
 
 
