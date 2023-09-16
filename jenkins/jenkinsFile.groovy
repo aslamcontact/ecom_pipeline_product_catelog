@@ -39,7 +39,7 @@ pipeline
                                         "-v /usr/bin/docker:/usr/bin/docker "+
                                         "-v /usr/bin/compose:/usr/bin/compose "+
                                         "-w /app/ecom_product_catelog  ubuntu:latest "+
-                                        " compose up "
+                                        "docker compose up "
 
                                 sh  "docker run --rm  --name test4 "+
                                         "-v ${volume}:/app "+
