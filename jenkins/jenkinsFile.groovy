@@ -32,6 +32,10 @@ pipeline
                                         "-v ${volume}:/app "+
                                         "-w /app  ${gitImage} "+
                                         "git clone ${gitProjectUrl}"
+                                sh  "docker run --rm  --name test3 "+
+                                        "-v ${volume}:/app "+
+                                        "-w /app  ${gitImage} "+
+                                        "ls"
 
                             }
                         }
