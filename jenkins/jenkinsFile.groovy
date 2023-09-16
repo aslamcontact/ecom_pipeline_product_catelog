@@ -41,7 +41,8 @@ pipeline
                                         "-v /usr/libexec/docker/cli-plugins/docker-compose:"+
                                         "/usr/libexec/docker/cli-plugins/docker-compose "+
                                         "-w /app/ecom_product_catelog  ubuntu:latest "+
-                                        "docker compose up "
+                                        "docker compose up -d"
+                                sh "sleep 20"
 
                                 sh  "docker run --rm  --name test3 "+
                                         "-v ${volume}:/app "+
