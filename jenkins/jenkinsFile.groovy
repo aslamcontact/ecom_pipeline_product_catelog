@@ -116,9 +116,9 @@ pipeline
                         {
                             steps {
 
+                                  sh "echo testing"
 
-
-                                sh  "docker run --rm  --name compose_sys "+
+                          /*      sh  "docker run --rm  --name compose_sys "+
                                         "-v ${volume}:/app "+
                                         "-v /var/run/docker.sock:/var/run/docker.sock "+
                                         "-v /usr/bin/docker:/usr/bin/docker "+
@@ -128,7 +128,7 @@ pipeline
                                         "-w /app/${proFolder}  ubuntu:latest "+
                                         "docker compose up -d "
 
-
+                           */
 
                             }
                         }
@@ -139,9 +139,9 @@ pipeline
                         {
                             steps {
 
+                                  sh "echo testing"
 
-
-                                sh  "docker run --rm  --name test3 "+
+                             /*   sh  "docker run --rm  --name test3 "+
                                         "-v ${volume}:/app "+
                                         "-v /var/run/docker.sock:/var/run/docker.sock "+
                                         "-v /usr/bin/docker:/usr/bin/docker "+
@@ -150,7 +150,7 @@ pipeline
                                         "/usr/libexec/docker/cli-plugins/docker-compose "+
                                         "-w /app/ecom_product_catelog  ubuntu:latest "+
                                         "docker compose down "
-
+                              */
 
 
                             }
